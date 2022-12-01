@@ -1,14 +1,4 @@
-import os
-import dotenv
-dotenv.load_dotenv()
-import requests
-from functools import reduce
-
-
-headers = {
-    "cookie": str(os.getenv("COOKIE"))
-}
-input = requests.get("https://adventofcode.com/2022/day/1/input", headers=headers)
+from utils import get_input
 
 
 def solve(input: bytes, n_last_elves: int) -> int:
@@ -20,5 +10,10 @@ def solve(input: bytes, n_last_elves: int) -> int:
     return sum(sorted_summatory[-n_last_elves:])
 
 
-print(solve(input.content, n_last_elves=1))
-print(solve(input.content, n_last_elves=3))
+
+#### main ####
+if __name__ == "__main__":
+
+    input = get_input(day=1)
+    print(solve(input.content, n_last_elves=1))
+    print(solve(input.content, n_last_elves=3))
