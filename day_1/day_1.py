@@ -15,5 +15,5 @@ def solve(input: bytes, n_last_elves: int) -> int:
 if __name__ == "__main__":
 
     input = get_input(day=1)
-    print(solve(input.content, n_last_elves=1))
-    print(solve(input.content, n_last_elves=3))
+    print(solve(input, n_last_elves=1))
+    print(solve(input, n_last_elves=3))
