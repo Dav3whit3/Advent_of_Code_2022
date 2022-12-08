@@ -1,4 +1,4 @@
-from utils import get_input
+from utils import Input
 from functools import reduce
 from string import ascii_letters
 from itertools import islice
@@ -7,7 +7,7 @@ from typing import Iterator
 
 class RucksackManager:
 
-    def __init__(self, input: list[str]):
+    def __init__(self, input: list[str] | str):
         self.input = input
 
     # Utils
@@ -55,11 +55,9 @@ class RucksackManager:
 
 #### main ####
 if __name__ == "__main__":
-    input = get_input(day=3)
-    clean_input = input.decode("utf-8").strip().split("\n")
+    input = Input(day=3).get_list(split_by="\n")
 
-
-    rucksack_manager = RucksackManager(clean_input)
+    rucksack_manager = RucksackManager(input)
     print(
         rucksack_manager.solve_part_1(),
         rucksack_manager.solve_part_2()
